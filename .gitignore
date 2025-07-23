@@ -1,0 +1,182 @@
+# =============================================================================
+# BUSINESS INTEGRATIONS GRAPH - GITIGNORE
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Arquivos de configuração sensíveis
+# -----------------------------------------------------------------------------
+.env
+*.env
+!.env.example
+
+# Credenciais e senhas
+*password*
+*secret*
+*token*
+access_info.txt
+
+# -----------------------------------------------------------------------------
+# Dados e volumes Docker
+# -----------------------------------------------------------------------------
+data/
+!data/import/
+!data/integrations/
+!data/relationships/
+
+# Volumes Docker
+volumes/
+docker-volumes/
+
+# Backups (muito grandes para Git)
+backups/
+*.backup
+*.dump
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# -----------------------------------------------------------------------------
+# Arquivos temporários
+# -----------------------------------------------------------------------------
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# Cache do sistema
+.DS_Store
+Thumbs.db
+.cache/
+
+# -----------------------------------------------------------------------------
+# Arquivos do Neo4j
+# -----------------------------------------------------------------------------
+# Dados do banco (não versionarr)
+neo4j/data/
+neo4j/logs/
+neo4j/import/
+neo4j/plugins/
+
+# Configurações específicas do ambiente
+neo4j.conf
+*.conf.local
+
+# -----------------------------------------------------------------------------
+# Docker
+# -----------------------------------------------------------------------------
+# Não ignorar docker-compose.yml (importante!)
+# docker-compose.yml
+
+# Arquivos de override específicos do ambiente
+docker-compose.override.yml
+docker-compose.local.yml
+docker-compose.prod.yml
+
+# -----------------------------------------------------------------------------
+# Scripts de build e deploy
+# -----------------------------------------------------------------------------
+# Manter scripts, mas ignorar artefatos
+build/
+dist/
+*.build
+deployment_key*
+
+# -----------------------------------------------------------------------------
+# Ferramentas de desenvolvimento
+# -----------------------------------------------------------------------------
+# IDEs
+.vscode/
+.idea/
+*.sublime-*
+
+# Python (se houver scripts Python)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+venv/
+env/
+
+# Node.js (se houver frontend)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# -----------------------------------------------------------------------------
+# Arquivos específicos do projeto
+# -----------------------------------------------------------------------------
+# Dados de teste grandes
+test_data/large_datasets/
+sample_data/production/
+
+# Arquivos de importação temporários
+import_temp/
+export_temp/
+
+# Relatórios e análises
+reports/
+analysis/
+*.csv
+*.xlsx
+*.json.large
+
+# -----------------------------------------------------------------------------
+# Certificados e chaves
+# -----------------------------------------------------------------------------
+*.pem
+*.key
+*.crt
+*.p12
+certificates/
+ssl/
+
+# -----------------------------------------------------------------------------
+# Monitoramento
+# -----------------------------------------------------------------------------
+monitoring/data/
+prometheus/data/
+grafana/data/
+
+# Métricas temporárias
+metrics/
+stats/
+
+# -----------------------------------------------------------------------------
+# Arquivos permitidos (forçar inclusão)
+# -----------------------------------------------------------------------------
+# Garantir que arquivos importantes sejam incluídos
+!README.md
+!LICENSE
+!docker-compose.yml
+!.env.example
+!scripts/
+!docs/
+!data/import/.gitkeep
+!data/integrations/.gitkeep
+!data/relationships/.gitkeep
+
+# Exemplos e templates
+!examples/
+!templates/
+
+# -----------------------------------------------------------------------------
+# Específico do Business Integrations Graph
+# -----------------------------------------------------------------------------
+# Arquivos de configuração de integrações específicas
+integrations/production/
+integrations/staging/
+integrations/secrets/
+
+# Dados de empresas reais (privacidade)
+companies/
+customers/
+real_data/
+
+# Configurações de deploy específicas do cliente
+deploy/client_*
+config/production_*
