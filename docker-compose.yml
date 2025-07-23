@@ -12,7 +12,7 @@ services:
     
     environment:
       # Autenticação
-      - NEO4J_AUTH=admin/businessgraph123
+      - NEO4J_AUTH=${NEO4J_USER}/${NEO4J_PASSWORD}
       
       # Performance  
       - NEO4J_dbms_memory_heap_max__size=2G
@@ -38,7 +38,7 @@ services:
       - ./data/import:/import
     
     healthcheck:
-      test: ["CMD-SHELL", "cypher-shell -u admin -p businessgraph123 'RETURN 1'"]
+      test: ["CMD-SHELL", "cypher-shell -u ${NEO4J_USER} -p ${NEO4J_PASSWORD} 'RETURN 1'"]
       interval: 30s
       timeout: 10s  
       retries: 3
@@ -52,7 +52,7 @@ services:
     depends_on:
       - neo4j
     environment:
-      - NEO4J_AUTH=admin/businessgraph123
+      - NEO4J_AUTH=${NEO4J_USER}/${NEO4J_PASSWORD}
     volumes:
       - business_graph_data:/data:ro
       - ./backups:/backups
